@@ -20,11 +20,11 @@ st.sidebar.header("输入特征值")
 # ---- 临床数据 ----
 st.sidebar.subheader("Clinical Features")
 
-PR = st.sidebar.number_input("PR (正整数)", min_value=0, value=1, step=1)
-Family_history = st.sidebar.number_input("Family history (正整数)", min_value=0, value=0, step=1)
-Retraction_phenomenon = st.sidebar.number_input("Retraction phenomenon (正整数)", min_value=0, value=1, step=1)
+PR = st.sidebar.number_input("PR", min_value=0, value=1, step=1)
+Family_history = st.sidebar.number_input("Family history", min_value=0, value=0, step=1)
+Retraction_phenomenon = st.sidebar.number_input("Retraction phenomenon", min_value=0, value=1, step=1)
 US_reported_ALN_status = st.sidebar.selectbox("US-reported ALN status", options=[0, 1], format_func=lambda x: "Negative (0)" if x == 0 else "Positive (1)")
-Adler_grade = st.sidebar.number_input("Adler grade (正整数)", min_value=0, value=3, step=1)
+Adler_grade = st.sidebar.number_input("Adler grade", min_value=0, value=3, step=1)
 
 # ---- 影像数据 ----
 st.sidebar.subheader("Imaging Features")
@@ -98,6 +98,7 @@ if st.button("开始预测"):
     plt.xlim(0, 1)
     plt.tight_layout()
     st.pyplot(plt)
+
 
 
 
