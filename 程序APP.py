@@ -45,7 +45,7 @@ wavelet_LHH_firstorder_90Percentile = st.sidebar.number_input("wavelet_LHH_first
 wavelet_LHL_glcm_ClusterProminence = st.sidebar.number_input("wavelet_LHL_glcm_ClusterProminence", value=3.880000e+11, format="%.6e")
 
 # =======================
-# 3. 构造输入特征（已按正确顺序）
+# 3. 构造输入特征(模型构建时的输入顺序)
 # =======================
 feature_names = [
     'PR',
@@ -112,13 +112,14 @@ if st.button("开始预测"):
     # 6. 可视化预测概率
     # =======================
     plt.figure(figsize=(6, 3))
-    bars = plt.barh(['未患病', '患病'], [probas[0], probas[1]], color=['#2E86C1', '#E74C3C'])
-    plt.xlabel("预测概率")
+    bars = plt.barh(['Not sick', 'sick'], [probas[0], probas[1]], color=['#2E86C1', '#E74C3C'])
+    plt.xlabel("Predicted probability")
     for i, v in enumerate(probas):
         plt.text(v + 0.001, i, f"{v:.3f}", va='center', fontweight='bold')
     plt.xlim(0, 1)
     plt.tight_layout()
     st.pyplot(plt)
+
 
 
 
