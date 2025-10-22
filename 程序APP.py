@@ -23,21 +23,44 @@ st.sidebar.subheader("Clinical Features")
 PR = st.sidebar.number_input("PR", min_value=0, value=1, step=1)
 Family_history = st.sidebar.number_input("Family history", min_value=0, value=0, step=1)
 Retraction_phenomenon = st.sidebar.number_input("Retraction phenomenon", min_value=0, value=1, step=1)
-US_reported_ALN_status = st.sidebar.selectbox("US-reported ALN status", options=[0, 1], format_func=lambda x: "Negative (0)" if x == 0 else "Positive (1)")
+US_reported_ALN_status = st.sidebar.selectbox(
+    "US-reported ALN status",
+    options=[0, 1],
+    index=0,
+    format_func=lambda x: "Negative (0)" if x == 0 else "Positive (1)"
+)
 Adler_grade = st.sidebar.number_input("Adler grade", min_value=0, value=3, step=1)
 
 # ---- 影像数据 ----
 st.sidebar.subheader("Imaging Features")
 
-lbp_3D_m1_glcm_ClusterShade = st.sidebar.number_input("lbp_3D_m1_glcm_ClusterShade", value=-10.372358, format="%.6f")
-wavelet_LHH_gldm_DependenceEntropy = st.sidebar.number_input("wavelet_LHH_gldm_DependenceEntropy", value=3.436621, format="%.6f")
-wavelet_LHH_firstorder_Maximum = st.sidebar.number_input("wavelet_LHH_firstorder_Maximum", value=3.160000e-13, format="%.6e")
-wavelet_HHH_gldm_LargeDependenceLowGrayLevelEmphasis = st.sidebar.number_input("wavelet_HHH_gldm_LargeDependenceLowGrayLevelEmphasis", value=12.281250, format="%.6f")
-logarithm_ngtdm_Busyness = st.sidebar.number_input("logarithm_ngtdm_Busyness", value=6.421602, format="%.6f")
-lbp_3D_k_glrlm_ShortRunLowGrayLevelEmphasis = st.sidebar.number_input("lbp_3D_k_glrlm_ShortRunLowGrayLevelEmphasis", value=0.270797, format="%.6f")
-logarithm_glszm_LargeAreaHighGrayLevelEmphasis = st.sidebar.number_input("logarithm_glszm_LargeAreaHighGrayLevelEmphasis", value=4.343142e+06, format="%.6e")
-wavelet_LHH_firstorder_90Percentile = st.sidebar.number_input("wavelet_LHH_firstorder_90Percentile", value=1.670000e-13, format="%.6e")
-wavelet_LHL_glcm_ClusterProminence = st.sidebar.number_input("wavelet_LHL_glcm_ClusterProminence", value=3.880000e+11, format="%.6e")
+lbp_3D_m1_glcm_ClusterShade = st.sidebar.number_input(
+    "lbp_3D_m1_glcm_ClusterShade", value=-1.037236e+01, format="%.6f"
+)
+wavelet_LHH_gldm_DependenceEntropy = st.sidebar.number_input(
+    "wavelet_LHH_gldm_DependenceEntropy", value=3.436621e+00, format="%.6f"
+)
+wavelet_LHH_firstorder_Maximum = st.sidebar.number_input(
+    "wavelet_LHH_firstorder_Maximum", value=3.160000e-13, format="%.6e"
+)
+wavelet_HHH_gldm_LargeDependenceLowGrayLevelEmphasis = st.sidebar.number_input(
+    "wavelet_HHH_gldm_LargeDependenceLowGrayLevelEmphasis", value=1.228125e+01, format="%.6f"
+)
+logarithm_ngtdm_Busyness = st.sidebar.number_input(
+    "logarithm_ngtdm_Busyness", value=6.421602e+00, format="%.6f"
+)
+lbp_3D_k_glrlm_ShortRunLowGrayLevelEmphasis = st.sidebar.number_input(
+    "lbp_3D_k_glrlm_ShortRunLowGrayLevelEmphasis", value=2.707971e-01, format="%.6f"
+)
+logarithm_glszm_LargeAreaHighGrayLevelEmphasis = st.sidebar.number_input(
+    "logarithm_glszm_LargeAreaHighGrayLevelEmphasis", value=4.343142e+06, format="%.6e"
+)
+wavelet_LHH_firstorder_90Percentile = st.sidebar.number_input(
+    "wavelet_LHH_firstorder_90Percentile", value=1.670000e-13, format="%.6e"
+)
+wavelet_LHL_glcm_ClusterProminence = st.sidebar.number_input(
+    "wavelet_LHL_glcm_ClusterProminence", value=3.880000e+11, format="%.6e"
+)
 
 # =======================
 # 3. 构造输入特征
@@ -98,6 +121,7 @@ if st.button("开始预测"):
     plt.xlim(0, 1)
     plt.tight_layout()
     st.pyplot(plt)
+
 
 
 
