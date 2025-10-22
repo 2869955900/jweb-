@@ -91,12 +91,12 @@ if st.button("开始预测"):
     # 6. 可视化预测概率
     # =======================
     plt.figure(figsize=(6, 3))
-    bars = plt.barh(['未患病', '患病'], [probas[0], probas[1]], color=['#2E86C1', '#E74C3C'])
-    plt.xlabel("预测概率")
-    plt.title("疾病预测概率")
+    bars = plt.barh(['Not sick', 'sick'], [probas[0], probas[1]], color=['#2E86C1', '#E74C3C'])
+    plt.xlabel("Predicted probability")
     for i, v in enumerate(probas):
         plt.text(v + 0.001, i, f"{v:.3f}", va='center', fontweight='bold')
     plt.xlim(0, 1)
     plt.tight_layout()
     st.pyplot(plt)
+
 
